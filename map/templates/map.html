@@ -23,18 +23,17 @@
   <script 
     src="{{ url_for('static', filename="js/moment.min.js") }}">
   </script>
+<!-- Our own style sheet -->
+<link rel="stylesheet" href="/static/css/map.css" />
 </head>
-   <!-- Our own style sheet -->
-   <link rel="stylesheet" href="/static/css/map.css" />
 <body>
 <!-- bootstrap requires a 'container' div around content -->
-<div class="container">
 
 <h1>Map Using Leaflet</h1>
   <p>This webpage features a map using leaflet. Click and drag it. Yeah.</p>
 
   
-<div id="mapid" style="width: 600px; height: 400px;"></div>
+<div id="mapid" style="position: absolute; height: 85%; width: 85%;"></div>
 <script>
 	var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
@@ -72,7 +71,12 @@
 	}
 
 	mymap.on('click', onMapClick);
-
+        
+        //resize window automatically
+        //$(window).on("resize", function() {
+        //    $("#mapid").height($(window).height()).width($(window).width());
+        //    mymap.invalidateSize();
+        //}).trigger("resize");
 </script>
 
 </body>

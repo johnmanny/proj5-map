@@ -32,7 +32,7 @@ HERE = os.path.dirname(__file__)
 def command_line_args():
     """Returns namespace with settings from command line"""
     log.debug("-> Command line args")
-    parser = argparse.ArgumentParser(description="ACP Brevet Controle Times")
+    parser = argparse.ArgumentParser(description="Flask Map")
     parser.add_argument("-D", "--debug", dest="DEBUG",
                         action="store_const", const=True,
                         help="Turn on debugging and verbose logging")
@@ -134,7 +134,5 @@ def configuration(proxied=False):
         else:
             log.debug("Storing in cli")
             cli_vars[var_upper] = ini[var_lower]
-
     imply_types(cli_vars)
-
     return cli
