@@ -26,14 +26,14 @@
 <!-- Our own style sheet -->
 <link rel="stylesheet" href="/static/css/map.css" />
 </head>
-<body>
-<!-- bootstrap requires a 'container' div around content -->
+<body style="height: 100%;">
 
+<!-- bootstrap requires a 'container' div around content -->
+<div class="container" style="height: 90%;">
 <h1>Map Using Leaflet</h1>
   <p>This webpage features a map using leaflet. Click and drag it. Yeah.</p>
 
-  
-<div id="mapid" style="position: absolute; height: 85%; width: 85%;"></div>
+<div id="mapid" style="height: 85%; width: 100%;"></div>
 <script>
 	var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
@@ -78,6 +78,6 @@
         //    mymap.invalidateSize();
         //}).trigger("resize");
 </script>
-
+</div>
 </body>
 </html>
