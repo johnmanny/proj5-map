@@ -1,57 +1,65 @@
 """
-Flask run program for a map
+Author: John Nemeth
+Sources: heavy reference from previous CIS322 projects, written by U of O CIS dept. staff
+Description: Driver Program for flask server of leaflet implemented map
 """
 
 import flask
 from flask import request
-#import arrow  # Replacement for datetime, based on moment.js
-#import acp_times  # Brevet time calculations
 import config
-import logging
+import dataprocess
 
-###
-# Globals
-###
+##########
+# globals
+##
 app = flask.Flask(__name__)
+#loaded from credentials.ini
 CONFIG = config.configuration()
 app.secret_key = CONFIG.SECRET_KEY
+FILENAME = CONFIG.DATA
 
-###
-# Pages
-###
+#list in format of [(name, address),...]
+markers = dataprocess.readIn(open(FILENAME))
 
+##########
+# pages
+##
 
 @app.route("/")
 @app.route("/index")
 def index():
-    app.logger.debug("Main page entry")
     return flask.render_template('map.html')
-
 
 @app.errorhandler(404)
 def page_not_found(error):
-    app.logger.debug("Page not found")
     flask.session['linkback'] = flask.url_for("index")
     return flask.render_template('404.html'), 404
 
+##########
+# ajax request handlers that return json
+##
 
-###############
-#
-# AJAX request handlers
-#   These return JSON, rather than rendering pages.
-#
-###############
+#returns address information for map markers
+@app.route("/_map_markers")
+def _map_markers():
+    count = request.args.get('count', type=int)
+    result = {"name": markers[count - 2], "address": markers[count - 1]}
+    return flask.jsonify(result=result)
 
-#############
+#returns length of data list which contains marker information
+@app.route("/_marker_count")
+def _marker_count():
+    result = { "count": len(markers) }
+    return flask.jsonify(result=result)
+
+##########
+# other
+##
 
 app.debug = CONFIG.DEBUG
 if app.debug:
     app.logger.setLevel(logging.DEBUG)
 
 if __name__ == "__main__":
-    #print ('port from config: ')
-    #print (CONFIG.PORT)
-    #print ('key from config: ')
-    #print( CONFIG.SECRET_KEY) 
     print("Opening for global access on port {}".format(CONFIG.PORT))
     app.run(port=CONFIG.PORT, host="0.0.0.0")

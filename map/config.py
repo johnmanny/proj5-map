@@ -1,4 +1,6 @@
 """
+Description: Recycled configuration file from previous projects for use in Project 5
+
 Configure from
    app.ini (if provided)
    credentials.ini
