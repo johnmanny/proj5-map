@@ -1,10 +1,10 @@
 #! /bin/bash
 #
-# Kill all current instances of flask_brevets on this machine
-#
+# Kill all current instances of flask_map on this machine
+# (recycled from project 4)
 #
 
-# Grep for all running processes containing flask_brevets in description
+# Grep for all running processes containing flask_map in description
 # EXCEPT the grep command itself; turn them into 'kill' commands and
 # execute the commands with bash
 #

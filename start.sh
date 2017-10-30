@@ -3,7 +3,7 @@
 # Usage:  ./start.sh [port]
 #  
 # Start the service as a background process
-#
+# (recycled from project 4)
 #
 
 PORTNUM=$1

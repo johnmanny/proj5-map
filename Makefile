@@ -1,5 +1,6 @@
-#
+# 
 # Proj 5: Flask Map
+# (recycled from project 4)
 # Gnu make and bash are required. 
 
 
