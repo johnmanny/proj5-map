@@ -13,6 +13,7 @@ import dataprocess
 # globals
 ##
 app = flask.Flask(__name__)
+
 #loaded from credentials.ini
 CONFIG = config.configuration()
 app.secret_key = CONFIG.SECRET_KEY
@@ -55,10 +56,6 @@ def _marker_count():
 ##########
 # other
 ##
-
-app.debug = CONFIG.DEBUG
-if app.debug:
-    app.logger.setLevel(logging.DEBUG)
 
 if __name__ == "__main__":
     print("Opening for global access on port {}".format(CONFIG.PORT))
