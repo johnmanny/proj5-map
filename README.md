@@ -9,9 +9,9 @@ in order to place the markers on their map.
 
 ## Assignment Information:
 
-Author: John Nemeth
+###Author: John Nemeth
 
-Sources: Heavy reference from prior projects (proj2, 3, and 4) and class material (CIS322).
-         More specific soures listed on top of files.
+###Sources: Heavy reference from prior projects (proj2, 3, and 4) and class material (CIS322).
+         More specific soures listed in file headers.
 
 in progress...
