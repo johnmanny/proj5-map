@@ -1,18 +1,20 @@
-# Project 5:  Map App
+# Project 5:  Booze Maps
 
-This map will center on the user's position (if geolocation is enabled),
-and will display a marker with a small circle showing their approximate 
-location. Markers are then placed in select liquor stores in the Eugene 
-area. The names and addresses are stored on a file on the server, read into the 
-flask application, which handles an ajax request and returns json to the client
-in order to place the markers on their map. 
+This map will center on the user's position (if geolocation is enabled,
+otherwise will center on Eugene, Or), and will display a marker with a small circle
+ showing their approximate location. Markers are then placed in select liquor/alcohol stores
+ in the Eugene area. The names and addresses are stored on a file on the server, 
+read into the flask application, which handles an ajax request and returns json to 
+the clientin order to place the markers on their map. Clicking on any other portion
+of the map will output an address that is obtained through reverse geolocation of
+the clicked latitude and longitude values.
 
 ## Assignment Information:
 
 ***Author***
 John Nemeth
 
-***Sources****
- Heavy reference from prior projects (proj2, 3, and 4) and class material (CIS322).
- More specific soures listed in file headers.
-
+***Sources***
+ Heavy reference from prior projects (proj2, 3, and 4), class material (CIS322),
+leaflet tutorial webpages and examples, esri geolocation examples, and other specific
+sources listed in file headers.

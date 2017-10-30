@@ -1,24 +1,22 @@
 #
-# File to store point of interest information
-# format: 380 New York St, Redlands, California, 92373
+# File to store point of interest information (liquor stores in eugene, or)
+# 
 
 name: Downtown Liquor Store
 address: 401 W 11th Ave, Eugene, Oregon, 97401
-
 name: South Liquor
 address: 2866 Williamette St, Eugene, Oregon, 97405
-
 name: Safeway Liquor
 address: 145 E 18th Ave, Eugene, Oregon, 97401
-
 name: Whiteaker Liquor
 address: 849 W 6th Ave, Eugene, Oregon, 97402
-
 name: Big Y Liquor Store
 address: 2170 W 6th Ave, Eugene, Oregon, 97402
-
 name: Northside Liquor Store
 address: 1530 Coburg Rd, Eugene, Oregon, 97401
-
 name: Cork & Bottle Shoppe Liquor
 address: 812 Beltline Rd, Springfield, Oregon, 97477
+name: 16 Tons Beer & Wine
+address: 265 E 13th Ave, Eugene, Oregon, 97401
+name: The Growler Guys
+address: 472 W 7th Ave, Eugene, Oregon, 97401

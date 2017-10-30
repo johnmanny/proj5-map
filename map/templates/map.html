@@ -32,20 +32,24 @@
 <!-- bootstrap requires a 'container' div around content -->
 <div class="container" style="height: 100%; width: 95%;">
 
-<h1>Leaflet Booze Maps</h1>
-  <p>This webpage hosts a boozemap. It centers on Eugene, Or (or the users position)
-     and outputs makers for liquor stores around the Eugene area. Happy Hunting!</p>
+<h1>Booze Maps</h1>
+  <p>This webpage hosts a BoozeMap. It centers on Eugene, Or (or the users position)
+     and outputs markers for liquor or alcohol stores around the Eugene area. Happy Hunting!</p>
 
 <div id="mapid" style="height: 85%; width: 100%;"></div>
+
+<!-- portions of script code obtained from various tutorial webpages from leaflet website and esri geolocation examples -->
 <script type ="text/javascript">
+	//variables used to tell client where script root is relative to server url
 	var SCRIPT_ROOT = {{request.script_root|tojson|safe}};	
 	var GET_MARKERS = SCRIPT_ROOT + "/_map_markers";
         var GET_MARKERCNT = SCRIPT_ROOT + "/_marker_count";
+
 	//variable for map, popup on map, service to match latlng to best address
 	var mymap = L.map('mapid').setView([44.045, -123.072], 13);
 	var popup = L.popup();
 	var geocodeService = L.esri.Geocoding.geocodeService();
-	
+
         //processes tilelayers
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidXNlcmpvaG4iLCJhIjoiY2o5YndodzU2MWl6bzJ3bHNsODZtZ3BjeSJ9.gvHj15qqbo5Ko9Hby5g8gQ', {
 		maxZoom: 18,
@@ -58,22 +62,20 @@
 	//locate position of client
 	mymap.locate({setView: true, maxZoom: 16}); 
 
-	//location error reporting:
-	mymap.on('locationfound', onLocFound);
-	mymap.on('locationerror', onLocError);
-
-	//funcs for location reporting
-	function onLocError(e) {
-		alert(e.message);
-	}
-	function onLocFound(e) {
+	//center map and place marker
+	mymap.on('locationfound', function onLocFound(e) {
 		var radius = e.accuracy / 2;
 		L.marker(e.latlng).addTo(mymap)
 		.bindPopup("You're pretty close to this point. (within " + radius + " meters)").openPopup();
 		L.circle(e.latlng, radius).addTo(mymap);
-	}
+	});
 
-	//place popup with address
+	//output error message about location
+	mymap.on('locationerror', function onLocError(e) {
+		alert(e.message);
+	});
+
+	//place popup with address when click on map
 	mymap.on('click', function onMapClick(e) {
 		geocodeService.reverse().latlng(e.latlng).run(function(error, result) {
 			popup
@@ -82,13 +84,13 @@
 				.openOn(mymap);
 		});
         });
-	 
+
         //called when page finished loading
 	$(document).ready(function() {
 		getMarkerCount(); 
 	}); 
 
-	//we call markercount with placemarkers inside as we need correct count of marker information to insert correct number of markers
+	//determine count of markers to be placed
 	function getMarkerCount() {
 		$.getJSON(GET_MARKERCNT, function(data) {
 			count = data.result.count;
@@ -112,7 +114,7 @@
 			});
 		});
 	}
-	
+
 </script>
 </div>
 </body>

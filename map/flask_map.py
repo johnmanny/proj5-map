@@ -1,6 +1,6 @@
 """
 Author: John Nemeth
-Sources: heavy reference from previous CIS322 projects, written by U of O CIS dept. staff
+Sources: heavy reference from previous CIS322 projects, written by U of O CIS dept. staff (Michal Young)
 Description: Driver Program for flask server of leaflet implemented map
 """
 
