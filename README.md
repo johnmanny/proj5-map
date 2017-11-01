@@ -11,10 +11,13 @@ the clicked latitude and longitude values.
 
 ## Assignment Information:
 
-***Author***
+***Author***:
 John Nemeth
 
-***Sources***
+***Class***: CIS322 17F
+
+***Sources***:
  Heavy reference from prior projects (proj2, 3, and 4), class material (CIS322),
 leaflet tutorial webpages and examples, esri geolocation examples, and other specific
-sources listed in file headers.
+sources listed in file headers. Some files (makefile, start and stop shell scripts) 
+essentially recycled with minor modifications for compatibility.
